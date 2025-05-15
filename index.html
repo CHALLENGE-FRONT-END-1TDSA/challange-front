@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="CSS/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="Imagens/LOGO.png" alt="Logo do Hospital">
+      </div>
+
+      <div class="right-side">
+        <nav class="menu">
+          <a href="index.html">Início</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contato.html">Contato</a>
+          <a href="integrantes.html">Integrantes</a>
+          <a href="login.html" class="login-mobile">Login</a>
+        </nav>
+
+        <div class="login login-desktop">
+          <a href="login.html">
+            <img src="Imagens/login.png" alt="Login">
+          </a>
+        </div>
+
+        <button class="hamburguer" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <h1>Clique onde dói e agende<br>seu atendimento!</h1>
+      <button class="botao">Iniciar atendimento</button>
+    </section>
+
+    <section class="como-funciona">
+      <h2>Como funciona</h2>
+      <p class="texto-explicativo">
+        Clique na parte do corpo onde você sente dor para podermos sugerir a especialidade médica ideal.<br>
+        Em seguida, você poderá preencher um formulário e agendar seu atendimento com facilidade.
+      </p>
+      <div class="explicacao">
+        <div class="corpo-container">
+          <img src="Imagens/corpohumano.png" alt="Corpo humano" class="corpo-img" />
+          <img src="Imagens/mão.png" alt="Ícone de clique" class="mao-img" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <h3>Contato</h3>
+      <p><i class="fas fa-envelope"></i> in.rea@hc.fm.usp.br</p>
+      <p><i class="fas fa-phone"></i> (11) 5549-2500</p>
+      <p><i class="fas fa-map-marker-alt"></i> Rua Domingo de Soto, 100 – Vila Mariana – SP</p>
+      <p>© 2025 Projeto Saúde Digital – FIAP & IMREA-HCFMUSP</p>
+    </div>
+  </footer>
+
+  <button onclick="topFunction()" id="btnTopo" title="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+</body>
+
+  <script defer>
+    function toggleMenu() {
+      const menu = document.querySelector(".menu");
+      menu.classList.toggle("menu-ativo");
+    }
+
+    // botão voltar ao topo
+    window.onscroll = () => {
+      const btn = document.getElementById("btnTopo");
+      btn.style.display = window.scrollY > 400 ? "block" : "none";
+    };
+
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+</html>
+
