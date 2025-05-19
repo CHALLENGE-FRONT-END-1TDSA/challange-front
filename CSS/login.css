@@ -1,0 +1,98 @@
+/* === Estilo Geral das Páginas de Autenticação === */
+
+.login-section {
+  max-width: 400px;
+  margin: 60px auto;
+  background-color: #F9FBFE;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.login-section h1 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #1F3C88;
+  text-align: center;
+}
+
+/* FORMULÁRIOS (Login, Cadastro, Recuperar) */
+
+.login-form,
+#cadastroForm,
+#recuperarSenhaForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label,
+#cadastroForm label,
+#recuperarSenhaForm label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 600;
+  color: #1F3C88;
+}
+
+.login-form input,
+#cadastroForm input,
+#recuperarSenhaForm input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Botões */
+
+.login-form button,
+#cadastroForm button,
+#recuperarSenhaForm button {
+  width: 100%;
+  background-color: #4A90E2;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-form button:hover,
+#cadastroForm button:hover,
+#recuperarSenhaForm button:hover {
+  background-color: #397bd2;
+}
+
+/* Links */
+
+.login-links {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-links a {
+  color: #1F3C88;
+  text-decoration: none;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsivo */
+
+@media (max-width: 500px) {
+  .login-section {
+    margin: 40px 20px;
+    padding: 25px;
+  }
+
+  .login-section h1 {
+    font-size: 22px;
+  }
+}

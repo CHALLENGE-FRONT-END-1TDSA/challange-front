@@ -1,1 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agendar Atendimento</title>
+  <link rel="stylesheet" href="CSS/Style.css">
+  <link rel="stylesheet" href="CSS/agendamento.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
 
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="Imagens/LOGO.png" alt="Logo do Hospital" />
+      </div>
+
+      <div class="right-side">
+        <nav class="menu">
+          <a href="index.html">Início</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contato.html">Contato</a>
+          <a href="integrantes.html">Integrantes</a>
+        </nav>
+
+        <div class="login login-desktop">
+          <a href="login.html">
+            <img src="Imagens/login.png" alt="Login" />
+          </a>
+        </div>
+
+        <button class="hamburguer" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="main">
+    <h1>Agendar Atendimento</h1>
+    <p>Clique na parte do corpo onde você sente dor para agendar seu exame.</p>
+
+    <div class="corpo-container">
+      <img src="Imagens/corpo-humano-.png" alt="Corpo humano" class="corpo-img" />
+
+      <!-- Bolinhas clicáveis -->
+      <div class="ponto ponto-cabeca" data-area="Cabeça"></div>
+      <div class="ponto ponto-figado" data-area="Fígado"></div>
+      <div class="ponto ponto-braco-direito" data-area="Braço Direito"></div>
+      <div class="ponto ponto-braco-esquerdo" data-area="Braço Esquerdo"></div>
+      <div class="ponto ponto-perna-direita" data-area="Perna Direita"></div>
+      <div class="ponto ponto-perna-esquerda" data-area="Perna Esquerda"></div>
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-bg" id="modal-bg">
+    <div class="modal">
+      <span class="close-btn" id="close-btn">&times;</span>
+      <h2>Agendar exame: <span id="area-dor"></span></h2>
+      <form id="form-agendamento">
+        <input type="hidden" name="areaDor" id="input-areaDor" />
+
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="idade">Idade</label>
+        <input type="number" id="idade" name="idade" min="0" required />
+
+        <label for="tipoDor">Tipo de dor</label>
+        <select id="tipoDor" name="tipoDor" required>
+          <option value="">Selecione</option>
+          <option value="Aguda">Aguda</option>
+          <option value="Crônica">Crônica</option>
+          <option value="Intermitente">Intermitente</option>
+        </select>
+
+        <label for="descricao">Descrição rápida</label>
+        <textarea id="descricao" name="descricao" placeholder="Ex: Dor forte ao movimentar" required></textarea>
+
+        <label for="horario">Período do dia</label>
+        <select id="horario" name="horario" required>
+          <option value="">Selecione</option>
+          <option value="Manhã">Manhã</option>
+          <option value="Tarde">Tarde</option>
+          <option value="Noite">Noite</option>
+        </select>
+
+        <label for="horarioDetalhado" id="labelHorarioDetalhado" >Horário específico</label>
+        <select id="horarioDetalhado" name="horarioDetalhado"  required></select>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <h3>Contato</h3>
+      <p><i class="fas fa-envelope"></i> in.rea@hc.fm.usp.br</p>
+      <p><i class="fas fa-phone"></i> (11) 5549-2500</p>
+      <p><i class="fas fa-map-marker-alt"></i> Rua Domingo de Soto, 100 – Vila Mariana – SP</p>
+      <p>© 2025 Projeto Saúde Digital – FIAP & IMREA-HCFMUSP</p>
+    </div>
+  </footer>
+
+  <button onclick="topFunction()" id="btnTopo" title="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Botão voltar ao topo
+    const btn = document.getElementById("btnTopo");
+    window.onscroll = () => {
+      btn.style.display = window.scrollY > 400 ? "block" : "none";
+    };
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Menu hambúrguer
+    function toggleMenu() {
+      const menu = document.querySelector(".menu");
+      menu.classList.toggle("menu-ativo");
+    }
+
+    // Modal agendamento
+    const pontos = document.querySelectorAll(".ponto");
+    const modal = document.getElementById("modal-bg");
+    const closeBtn = document.getElementById("close-btn");
+    const areaText = document.getElementById("area-dor");
+    const inputArea = document.getElementById("input-areaDor");
+
+    pontos.forEach(ponto => {
+      ponto.addEventListener("click", () => {
+        const area = ponto.dataset.area;
+        areaText.textContent = area;
+        inputArea.value = area;
+        modal.classList.add("active");
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("active");
+      resetModal();
+    });
+
+    // Atualiza horários conforme período escolhido
+    const selectHorario = document.getElementById("horario");
+    const selectHorarioDetalhado = document.getElementById("horarioDetalhado");
+    const labelHorarioDetalhado = document.getElementById("labelHorarioDetalhado");
+
+    selectHorario.addEventListener("change", () => {
+      const periodo = selectHorario.value;
+      let horarios = [];
+
+      if (periodo === "Manhã") {
+        horarios = ["07:00", "08:00", "09:00", "10:00", "11:00", "12:00"];
+      } else if (periodo === "Tarde") {
+        horarios = ["13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
+      } else if (periodo === "Noite") {
+        horarios = ["19:00", "20:00", "21:00", "22:00"];
+      }
+
+      if (horarios.length > 0) {
+        selectHorarioDetalhado.innerHTML = `<option value="">Selecione</option>` + horarios.map(h => `<option value="${h}">${h}</option>`).join("");
+        selectHorarioDetalhado.style.display = "block";
+        labelHorarioDetalhado.style.display = "block";
+        selectHorarioDetalhado.required = true;
+      } else {
+        selectHorarioDetalhado.style.display = "none";
+        labelHorarioDetalhado.style.display = "none";
+        selectHorarioDetalhado.required = false;
+      }
+    });
+
+    // Formulário de agendamento
+    const form = document.getElementById("form-agendamento");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const horarioSelecionado = selectHorario.value;
+      const horarioDetalhado = selectHorarioDetalhado.value;
+
+      form.style.display = "none";
+
+      const confirmation = document.createElement("div");
+      confirmation.innerHTML = `
+        <h3 style="color: #1F3C88; text-align: center;">✅ Seu atendimento está agendado!</h3>
+        <p style="text-align: center;">🕒 Período: <strong>${horarioSelecionado}</strong></p>
+        <p style="text-align: center;">🗓️ Horário: <strong>${horarioDetalhado}</strong></p>
+        <button onclick="fecharConfirmacao()" style="margin-top: 15px; background: #4A90E2; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; display: block; margin-left: auto; margin-right: auto;">Fechar</button>
+      `;
+      document.querySelector(".modal").appendChild(confirmation);
+    });
+
+    function fecharConfirmacao() {
+      modal.classList.remove("active");
+      resetModal();
+    }
+
+    function resetModal() {
+      form.reset();
+      form.style.display = "block";
+      selectHorarioDetalhado.style.display = "none";
+      labelHorarioDetalhado.style.display = "none";
+
+      const confirmation = document.querySelector(".modal div:last-child");
+      if (confirmation && confirmation.querySelector("h3")) {
+        confirmation.remove();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -3,35 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Página Inicial</title>
-  <link rel="stylesheet" href="CSS/style.css" />
+  <title>Login</title>
+  <link rel="stylesheet" href="CSS/Style.css">
+  <link rel="stylesheet" href="CSS/login.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
+  <!-- Header padrão -->
   <header class="header">
     <div class="header-container">
       <div class="logo">
-        <a href="index.html">
         <img src="Imagens/LOGO.png" alt="Logo do Hospital">
-        </a>
       </div>
-
       <div class="right-side">
         <nav class="menu">
           <a href="index.html">Início</a>
           <a href="faq.html">FAQ</a>
           <a href="contato.html">Contato</a>
           <a href="integrantes.html">Integrantes</a>
-          <a href="login.html" class="login-mobile">Login</a>
         </nav>
-
-        <div class="login login-desktop">
-          <a href="login.html">
-            <img src="Imagens/login.png" alt="Login">
-          </a>
-        </div>
-
         <button class="hamburguer" onclick="toggleMenu()">
           <i class="fas fa-bars"></i>
         </button>
@@ -39,29 +30,29 @@
     </div>
   </header>
 
+  <!-- Área de Login -->
   <main class="main">
-    <section class="hero">
-      <h1>Clique onde dói e agende<br>seu atendimento!</h1>
-      <a href="corpohumano.html">
-      <button class="botao"> Iniciar atendimento</button>
-      </a>
-    </section>
+    <section class="login-section">
+      <h1>Login</h1>
+      <form class="login-form">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="Digite seu e-mail" required>
 
-    <section class="como-funciona">
-      <h2>Como funciona</h2>
-      <p class="texto-explicativo">
-        Clique na parte do corpo onde você sente dor para podermos sugerir a especialidade médica ideal.<br>
-        Em seguida, você poderá preencher um formulário e agendar seu atendimento com facilidade.
-      </p>
-      <div class="explicacao">
-        <div class="corpo-container">
-          <img src="Imagens/corpohumano.png" alt="Corpo humano" class="corpo-img" />
-          <img src="Imagens/mão.png" alt="Ícone de clique" class="mao-img" />
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+        <button type="submit">Entrar</button>
+
+        <div class="login-links">
+          <a href="esqueci-senha.html">Esqueci minha senha</a>
+          <span> | </span>
+          <a href="cadastro.html">Cadastrar</a>
         </div>
-      </div>
+      </form>
     </section>
   </main>
 
+  <!-- Rodapé padrão -->
   <footer class="footer">
     <div class="footer-container">
       <h3>Contato</h3>
@@ -76,15 +67,12 @@
     <i class="fas fa-arrow-up"></i>
   </button>
 
-</body>
-
-  <script defer>
+  <!-- Script do botão e menu -->
+  <script>
     function toggleMenu() {
-      const menu = document.querySelector(".menu");
-      menu.classList.toggle("menu-ativo");
+      document.querySelector(".menu").classList.toggle("menu-ativo");
     }
 
-    // botão voltar ao topo
     window.onscroll = () => {
       const btn = document.getElementById("btnTopo");
       btn.style.display = window.scrollY > 400 ? "block" : "none";
@@ -93,6 +81,26 @@
     function topFunction() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  </script>
-</html>
 
+     // LOGIN SIMULADO
+  document.querySelector('.login-form')?.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const nome = "Usuário"; // simule ou puxe do backend se houver
+    localStorage.setItem("usuario", nome);
+    window.location.href = "index.html";
+  });
+
+  // MOSTRAR "Olá, Nome" no topo
+  window.addEventListener("DOMContentLoaded", () => {
+    const usuario = localStorage.getItem("usuario");
+    if (usuario) {
+      const loginIcone = document.querySelector(".login-desktop");
+      if (loginIcone) {
+        loginIcone.innerHTML = `<span style="font-weight: 600;">Olá, ${usuario}</span>`;
+      }
+    }
+  });
+  </script>
+</body>
+</html>

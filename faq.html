@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ - Perguntas Frequentes</title>
+  <link rel="stylesheet" href="CSS/style.css" />
+  <link rel="stylesheet" href="CSS/demaispaginas.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo"><img src="Imagens/LOGO.png" alt="Logo do Hospital"></div>
+      <div class="right-side">
+        <nav class="menu">
+          <a href="index.html">Início</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contato.html">Contato</a>
+          <a href="integrantes.html">Integrantes</a>
+        </nav>
+        <button class="hamburguer" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="faq-container">
+    <h1>Perguntas Frequentes</h1>
+
+    <div class="faq-item">
+      <button class="faq-question">Como faço para agendar um atendimento? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Basta acessar a página de agendamento, clicar na parte do corpo onde sente dor e preencher o formulário com seus dados e preferências de horário.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Quais informações são necessárias no momento do agendamento? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Durante o agendamento, você precisará informar seus dados pessoais, como nome completo, idade, tipo e descrição da dor, além do horário preferencial para o atendimento.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Quais horários estão disponíveis para atendimento? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Os horários disponíveis são: <strong>Manhã (7h às 12h)</strong>, <strong>Tarde (13h às 18h)</strong> e <strong>Noite (19h às 22h)</strong>.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Como recebo a confirmação do meu agendamento? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Após preencher e enviar o formulário de agendamento, você verá uma mensagem de confirmação na tela com os dados do atendimento. Em breve, o hospital poderá entrar em contato, caso necessário.
+</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Meus dados estão seguros? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Sim. Valorizamos a privacidade dos usuários e seus dados são armazenados com segurança e utilizados apenas para fins de atendimento médico.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Posso agendar para outra pessoa, como um parente? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Sim. É possível agendar um atendimento para outra pessoa, desde que você forneça corretamente os dados dela no formulário, como nome, idade e tipo de dor.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <h3>Contato</h3>
+      <p><i class="fas fa-envelope"></i> in.rea@hc.fm.usp.br</p>
+      <p><i class="fas fa-phone"></i> (11) 5549-2500</p>
+      <p><i class="fas fa-map-marker-alt"></i> Rua Domingo de Soto, 100 – Vila Mariana – SP</p>
+      <p>© 2025 Projeto Saúde Digital – FIAP & IMREA-HCFMUSP</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector(".menu");
+      menu.classList.toggle("menu-ativo");
+    }
+
+    // Interatividade do FAQ
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(button => {
+      button.addEventListener('click', () => {
+        const answer = button.nextElementSibling;
+        answer.classList.toggle('active');
+        button.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
