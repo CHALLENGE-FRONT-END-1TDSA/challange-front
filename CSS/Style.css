@@ -10,7 +10,6 @@ body {
   color: #1F3C88;
 }
 
-/* HEADER */
 .header {
   background-color: #F9FBFE;
   padding: 20px 40px;
@@ -36,7 +35,6 @@ body {
   gap: 16px;
 }
 
-/* MENU */
 .menu {
   display: flex;
   gap: 16px;
@@ -63,7 +61,7 @@ body {
   margin-top: 10px;
 }
 
-/* LOGIN */
+
 .login-desktop img {
   height: 34px;
   max-width: 40px;
@@ -74,7 +72,7 @@ body {
   display: none;
 }
 
-/* HAMBURGUER */
+
 .hamburguer {
   display: none;
   background: none;
@@ -84,7 +82,7 @@ body {
   cursor: pointer;
 }
 
-/* MAIN */
+
 .main {
   max-width: 960px;
   margin: 0 auto;
@@ -114,7 +112,7 @@ body {
   background-color: #397bd2;
 }
 
-/* COMO FUNCIONA */
+
 .como-funciona {
   margin-top: 80px;
   text-align: center;
@@ -165,7 +163,7 @@ body {
   transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* FOOTER */
+
 .footer {
   background-color: #E6F0FA;
   color: #1F3C88;
@@ -195,11 +193,11 @@ body {
   color: #1F3C88;
 }
 
-/* BOTÃO TOPO */
+
 #btnTopo {
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  left: 30px; 
   z-index: 99;
   font-size: 18px;
   background-color: #4A90E2;
@@ -216,7 +214,7 @@ body {
   background-color: #397bd2;
 }
 
-/* RESPONSIVIDADE */
+
 @media (max-width: 768px) {
   .menu {
     display: none;

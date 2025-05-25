@@ -16,7 +16,7 @@
   -ms-user-select: none;
 }
 
-/* Bolinhas clicáveis */
+
 .ponto {
   position: absolute;
   width: 20px;
@@ -33,7 +33,7 @@
   background: #2a5bb7;
 }
 
-/* MODAL */
+
 .modal-bg {
   display: none;
   position: fixed;
@@ -114,38 +114,234 @@
   color: #1F3C88;
 }
 
-/* Localização por área */
 .ponto-cabeca {
   top: 5%;
   left: 48,5%;
 }
 
-.ponto-figado {
+.ponto-peito {
   top: 21%;
   left: 48,5%;
 }
 
-.ponto-braco-direito {
+.ponto-braco-esquerdo {
   top: 28%;
   left: 42%;
 }
 
-.ponto-braco-esquerdo {
+.ponto-braco-direito {
   top: 28%;
   left: 55%;
 }
 
-.ponto-perna-direita {
+.ponto-perna-esquerda {
   top: 83%;
   left: 45%;
 }
 
-.ponto-perna-esquerda {
+.ponto-perna-direita {
   top: 83%;
   left: 53%;
 }
 
 
 
+@media (max-width: 300px)
+{
+  .ponto-cabeca {
+    top: 5%;
+    left: 48,5%;
+  }
 
+  .ponto-peito {
+    top: 21%;
+    left: 48,5%;
+  }
 
+  .ponto-braco-esquerdo {
+    top: 28%;
+    left: 30%;
+  }
+
+  .ponto-braco-direito {
+    top: 28%;
+    left: 62%;
+  }
+
+  .ponto-perna-esquerda {
+    top: 83%;
+    left: 37%;
+  }
+  .ponto-perna-direita {
+    top: 83%;
+    left: 54.4%;
+  }
+
+  .popup {
+    width: 90%;
+    padding: 15px;
+    font-size: 0.9em;
+  }
+
+  .popup input,
+  .popup select,
+  .popup textarea {
+    font-size: 0.9em;
+    padding: 6px;
+  }
+
+  .popup h2 {
+    font-size: 1.1em;
+  }
+
+  .popup button {
+    font-size: 0.9em;
+    padding: 6px 12px;
+  }
+}
+
+@media (min-width: 301px) and (max-width: 600px) {
+  .ponto-cabeca {
+    top: 5%;
+    left: 48,5%;
+  }
+
+  .ponto-peito {
+    top: 21%;
+    left: 48,5%;
+  }
+
+  .ponto-braco-esquerdo {
+    top: 28%;
+    left: 35%;
+  }
+
+  .ponto-braco-direito {
+    top: 28%;
+    left: 60%;
+  }
+
+  .ponto-perna-esquerda {
+    top: 83%;
+    left: 40%;
+  }
+  .ponto-perna-direita {
+    top: 83%;
+    left: 55%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px){
+  .ponto-cabeca {
+    top: 5%;
+    left: 48,5%;
+  }
+
+  .ponto-peito {
+    top: 21%;
+    left: 48,5%;
+  }
+
+  .ponto-braco-esquerdo {
+    top: 28%;
+    left: 38%;
+  }
+
+  .ponto-braco-direito {
+    top: 28%;
+    left: 58%;
+  }
+
+  .ponto-perna-esquerda {
+    top: 83%;
+    left: 42%;
+  }
+  .ponto-perna-direita {
+    top: 83%;
+    left: 54.4%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+  .ponto-cabeca {
+    top: 5%;
+    left: 48,5%;
+  }
+
+  .ponto-peito {
+    top: 21%;
+    left: 48,5%;
+  }
+
+  .ponto-braco-esquerdo {
+    top: 28%;
+    left: 41%;
+  }
+
+  .ponto-braco-direito {
+    top: 28%;
+    left: 56%;
+  }
+
+  .ponto-perna-esquerda {
+    top: 83%;
+    left: 44%;
+  }
+
+  .ponto-perna-direita {
+    top: 83%;
+    left: 52,5%;
+  }
+}
+.header-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.hamburguer {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: #1F3C88;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .hamburguer {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #F9FBFE;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    left: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    text-align: center;
+  }
+
+  .menu-ativo {
+    display: flex !important;
+  }
+
+  .header-container {
+    flex-direction: row;
+    align-items: center;
+  }
+}

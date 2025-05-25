@@ -6,31 +6,39 @@
   <title>Login</title>
   <link rel="stylesheet" href="CSS/Style.css">
   <link rel="stylesheet" href="CSS/login.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="shortcut icon" href="Imagens/LOGO.png" type="image/png">
 </head>
 <body>
 
-  <!-- Header padrão -->
   <header class="header">
     <div class="header-container">
       <div class="logo">
-        <img src="Imagens/LOGO.png" alt="Logo do Hospital">
+        <a href="index.html">
+          <img src="Imagens/LOGO.png" alt="Logo do Hospital">
+        </a>
       </div>
+
       <div class="right-side">
+        <button class="hamburguer" onclick="toggleMenu()">☰</button>
+
         <nav class="menu">
           <a href="index.html">Início</a>
           <a href="faq.html">FAQ</a>
           <a href="contato.html">Contato</a>
           <a href="integrantes.html">Integrantes</a>
+          <a href="login.html" class="login-mobile">Login</a>
         </nav>
-        <button class="hamburguer" onclick="toggleMenu()">
-          <i class="fas fa-bars"></i>
-        </button>
+
+        <div class="login login-desktop">
+          <a href="login.html">
+            <img src="Imagens/login.png" alt="Login">
+          </a>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Área de Login -->
   <main class="main">
     <section class="login-section">
       <h1>Login</h1>
@@ -52,7 +60,6 @@
     </section>
   </main>
 
-  <!-- Rodapé padrão -->
   <footer class="footer">
     <div class="footer-container">
       <h3>Contato</h3>
@@ -67,7 +74,6 @@
     <i class="fas fa-arrow-up"></i>
   </button>
 
-  <!-- Script do botão e menu -->
   <script>
     function toggleMenu() {
       document.querySelector(".menu").classList.toggle("menu-ativo");
@@ -82,16 +88,14 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-     // LOGIN SIMULADO
   document.querySelector('.login-form')?.addEventListener('submit', function (e) {
     e.preventDefault();
     const email = document.getElementById("email").value;
-    const nome = "Usuário"; // simule ou puxe do backend se houver
+    const nome = "Usuário"; 
     localStorage.setItem("usuario", nome);
     window.location.href = "index.html";
   });
 
-  // MOSTRAR "Olá, Nome" no topo
   window.addEventListener("DOMContentLoaded", () => {
     const usuario = localStorage.getItem("usuario");
     if (usuario) {

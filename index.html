@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Página Inicial</title>
   <link rel="stylesheet" href="CSS/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="shortcut icon" href="Imagens/LOGO.png" type="image/png">
 </head>
 <body>
 
@@ -13,11 +13,13 @@
     <div class="header-container">
       <div class="logo">
         <a href="index.html">
-        <img src="Imagens/LOGO.png" alt="Logo do Hospital">
+          <img src="Imagens/LOGO.png" alt="Logo do Hospital">
         </a>
       </div>
 
       <div class="right-side">
+        <button class="hamburguer" onclick="toggleMenu()">☰</button>
+
         <nav class="menu">
           <a href="index.html">Início</a>
           <a href="faq.html">FAQ</a>
@@ -31,10 +33,6 @@
             <img src="Imagens/login.png" alt="Login">
           </a>
         </div>
-
-        <button class="hamburguer" onclick="toggleMenu()">
-          <i class="fas fa-bars"></i>
-        </button>
       </div>
     </div>
   </header>
@@ -43,15 +41,15 @@
     <section class="hero">
       <h1>Clique onde dói e agende<br>seu atendimento!</h1>
       <a href="corpohumano.html">
-      <button class="botao"> Iniciar atendimento</button>
+        <button class="botao"> Iniciar atendimento</button>
       </a>
     </section>
 
     <section class="como-funciona">
       <h2>Como funciona</h2>
       <p class="texto-explicativo">
-        Clique na parte do corpo onde você sente dor para podermos sugerir a especialidade médica ideal.<br>
-        Em seguida, você poderá preencher um formulário e agendar seu atendimento com facilidade.
+        Clique na parte do corpo onde você sente dor para podermos marcar um atendimento para você.<br>
+        Em seguida, você poderá preencher um formulário e agendar com facilidade.
       </p>
       <div class="explicacao">
         <div class="corpo-container">
@@ -65,18 +63,14 @@
   <footer class="footer">
     <div class="footer-container">
       <h3>Contato</h3>
-      <p><i class="fas fa-envelope"></i> in.rea@hc.fm.usp.br</p>
-      <p><i class="fas fa-phone"></i> (11) 5549-2500</p>
-      <p><i class="fas fa-map-marker-alt"></i> Rua Domingo de Soto, 100 – Vila Mariana – SP</p>
+      <p>📧 in.rea@hc.fm.usp.br</p>
+      <p>📞 (11) 5549-2500</p>
+      <p>📍 Rua Domingo de Soto, 100 – Vila Mariana – SP</p>
       <p>© 2025 Projeto Saúde Digital – FIAP & IMREA-HCFMUSP</p>
     </div>
   </footer>
 
-  <button onclick="topFunction()" id="btnTopo" title="Voltar ao topo">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-</body>
+  <button onclick="topFunction()" id="btnTopo" title="Voltar ao topo">↑</button>
 
   <script defer>
     function toggleMenu() {
@@ -84,7 +78,7 @@
       menu.classList.toggle("menu-ativo");
     }
 
-    // botão voltar ao topo
+    
     window.onscroll = () => {
       const btn = document.getElementById("btnTopo");
       btn.style.display = window.scrollY > 400 ? "block" : "none";
@@ -93,6 +87,20 @@
     function topFunction() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  </script>
-</html>
 
+    
+    window.watsonAssistantChatOptions = {
+      integrationID: "61e673f8-c236-483d-a1fc-7dc645c8d727",
+      region: "us-south",
+      serviceInstanceID: "e431dbe8-aa21-4c18-be34-145e40b17ec1",
+      onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + 
+      (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+</body>
+</html>

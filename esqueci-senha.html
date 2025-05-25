@@ -6,22 +6,37 @@
   <title>Recuperar Senha</title>
   <link rel="stylesheet" href="CSS/style.css" />
   <link rel="stylesheet" href="CSS/login.css" />
+  <link rel="shortcut icon" href="Imagens/LOGO.png" type="image/png">
 </head>
 <body>
-  <header class="header">
+<header class="header">
     <div class="header-container">
-      <div class="logo"><img src="Imagens/LOGO.png" alt="Logo do Hospital"></div>
+      <div class="logo">
+        <a href="index.html">
+          <img src="Imagens/LOGO.png" alt="Logo do Hospital">
+        </a>
+      </div>
+
       <div class="right-side">
+        <button class="hamburguer" onclick="toggleMenu()">☰</button>
+
         <nav class="menu">
           <a href="index.html">Início</a>
           <a href="faq.html">FAQ</a>
           <a href="contato.html">Contato</a>
           <a href="integrantes.html">Integrantes</a>
+          <a href="login.html" class="login-mobile">Login</a>
         </nav>
-        <button class="hamburguer" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+
+        <div class="login login-desktop">
+          <a href="login.html">
+            <img src="Imagens/login.png" alt="Login">
+          </a>
+        </div>
       </div>
     </div>
   </header>
+
 
   <main class="main">
     <section class="login-section">

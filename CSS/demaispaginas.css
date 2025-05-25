@@ -47,16 +47,13 @@
 }
 
 .faq-answer.active {
-  max-height: 500px; /* ou o suficiente para o conteúdo */
+  max-height: 500px;
 }
 
 .faq-answer p {
   color: #333;
   margin-top: 10px;
 }
-
-
-
 
 .contato-section {
   max-width: 600px;
@@ -115,15 +112,6 @@
 .form-contato button:hover {
   background-color: #357ac7;
 }
-
-
-
-
-
-
-
-
-
 
 .integrantes-section {
   padding: 50px 20px;
@@ -188,6 +176,148 @@
 
 .links a:hover {
   color: #1F3C88;
+}
+
+
+.hamburguer {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #1F3C88;
+  cursor: pointer;
+}
+
+
+.menu {
+  display: flex;
+  gap: 16px;
+}
+
+
+.menu-ativo {
+  display: flex !important;
+}
+
+
+.header-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+
+@media (max-width: 768px) {
+  .hamburguer {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #F9FBFE;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    left: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    text-align: center;
+  }
+
+  .menu-ativo {
+    display: flex !important;
+  }
+
+ 
+  .header-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .logo {
+    margin-bottom: 0;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .faq-container {
+    padding: 0 10px;
+  }
+
+  .contato-section {
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .contato-section h1 {
+    font-size: 22px;
+  }
+
+  .contato-section p {
+    font-size: 14px;
+  }
+
+  .form-contato input,
+  .form-contato textarea {
+    font-size: 14px;
+  }
+
+  .form-contato button {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .integrantes-section h1 {
+    font-size: 26px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .links a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-question {
+    font-size: 1rem;
+  }
+
+  .contato-section h1 {
+    font-size: 20px;
+  }
+
+  .contato-section p {
+    font-size: 13px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .card h2 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
 }
 
 
